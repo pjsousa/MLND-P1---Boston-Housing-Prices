@@ -11765,7 +11765,13 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Revised-answers-after-my-first-project-review">Revised answers after my first project review<a class="anchor-link" href="#Revised-answers-after-my-first-project-review">&#182;</a></h3><blockquote><p><a href="#Implementation:-Calculate-Statistics">Calculate-Statistics</a> - Up until now I was under the impression that pandas simply exposed the numpy implementation for the statistics functions. Also, I usually forget to set the degrees of freedom to 0, but didn't now that whenever I've used numpy that it was already the default value. The reviewing for this answer was really insightful.</p>
-<p><a href="#Question-8---Cross-Validation">Question-8</a> - I just competely forgot to tell how would we use the end result of the K-Fold Cross Validation...</p>
+<p><a href="#Question-8---Cross-Validation">Question-8</a> - At first, I just competely forgot to tell how would we use the end result of the K-Fold Cross Validation... Then, I revisited this answer once more because although I understood the principles of K-Fold and Grid-Search I didn't quite realized the benefits of combining them together during our GridSearch process. I went through some outter resources in order to better understand this:</p>
+<ul>
+<li><a href="https://discussions.udacity.com/t/how-is-the-final-model-determined-in-k-fold-cross-validation/187517">https://discussions.udacity.com/t/how-is-the-final-model-determined-in-k-fold-cross-validation/187517</a></li>
+<li><a href="http://stats.stackexchange.com/questions/34652/grid-search-on-k-fold-cross-validation">http://stats.stackexchange.com/questions/34652/grid-search-on-k-fold-cross-validation</a></li>
+<li><a href="https://en.m.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search">https://en.m.wikipedia.org/wiki/Hyperparameter_optimization#Grid_search</a></li>
+<li><a href="http://scikit-learn.org/stable/modules/grid_search.html#grid-search">http://scikit-learn.org/stable/modules/grid_search.html#grid-search</a></li>
+</ul>
 </blockquote>
 
 </div>
@@ -15124,9 +15130,10 @@ AABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> K-Fold Cross Validation lets us split our data into k bins. And run k train + testing iterations. 
-In each iteration the algorightm uses a diferent bin for testing. In the end, we get our algorithm performance by averaging the test perfmormances of each iteration</p>
-<p>The benefit of all this is that in the end of all iterations, all of the data has been used in either training or testing. There is no definitive "left outs" for training or "left outs" for testing.</p>
+<p><strong>Answer: </strong> K-Fold Cross Validation is a method, or principle, in which we split our data into k folds (or bins) and run k train + testing iterations. 
+In each iteration the algorightm uses a diferent bin for testing. In the end, we get our algorithm performance by averaging the test perfmormances of each iteration.</p>
+<p>The benefit of all this is that in the end of all iterations, all of the data has been used in either training or testing. There is no definitive "left outs" for training, or "left outs" for testing, and we can be more confident in the scores that we are seeing.</p>
+<p>Another great use of K-Fold CV, is that we can use same principle of K-Fold combined with GridSearch (and be more confident of the hyperparameters that we are getting instead of the model itself). This happens bacause instead of choosing the hyper parameters that got a better score after 1 search iteration we can run GridSearch accross multiple folds and choose the ones that got a better average across all them.</p>
 
 </div>
 </div>
